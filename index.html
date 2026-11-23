@@ -267,13 +267,13 @@ let cart=[];
 const products=[
 // ============ PLAYSTATION ============
 {id:1,cat:'PlayStation',name:'PlayStation 5 Slim',desc:'Edisi Digital · 1TB SSD',capacities:['Standar'],prices:{'Standar':7299000},discount:30,colors:[
-{k:'White',n:'Putih',img:'LINK_GAMBAR_PS5_SLIM_DISINI'}]},
+{k:'White',n:'Putih',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Playstation_5_mod%C3%A8le_slim_(%C3%A9dition_standard_avec_lecteur_de_disque_amovible.png)'}]},
 {id:2,cat:'PlayStation',name:'PlayStation 5 Pro',desc:'Edisi Digital · 2TB SSD',capacities:['Standar'],prices:{'Standar':14999000},discount:30,colors:[
-{k:'White',n:'Putih',img:'LINK_GAMBAR_PS5_PRO_DISINI'}]},
+{k:'White',n:'Putih',img:'https://commons.wikimedia.org/wiki/Special:FilePath/PlayStation_5_Pro.jpg'}]},
 {id:3,cat:'PlayStation',name:'DualSense Controller',desc:'Wireless Controller',capacities:['Standar'],prices:{'Standar':1299000},discount:30,colors:[
-{k:'White',n:'Putih',img:'LINK_GAMBAR_CONTROLLER_DISINI'}]},
+{k:'White',n:'Putih',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Playstation_DualSense_Controller.png'}]},
 {id:4,cat:'PlayStation',name:'Pulse 3D Wireless Headset',desc:'Audio 3D · Baterai tahan lama',capacities:['Standar'],prices:{'Standar':1499000},discount:30,colors:[
-{k:'White',n:'Putih',img:'LINK_GAMBAR_HEADSET_DISINI'}]},
+{k:'White',n:'Putih',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Pulse_3D_wireless_headset.png'}]},
   
 // ============ XBOX ============
 {id:5,cat:'Xbox',name:'Xbox Series X',desc:'1TB SSD · 4K Gaming',capacities:['Standar'],prices:{'Standar':9499000},discount:30,colors:[
@@ -281,7 +281,7 @@ const products=[
 {id:6,cat:'Xbox',name:'Xbox Series S',desc:'512GB SSD · All Digital',capacities:['Standar'],prices:{'Standar':5499000},discount:30,colors:[
 {k:'White',n:'Putih',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Xbox_Series_X_and_Series_S.jpg/640px-Xbox_Series_X_and_Series_S.jpg'}]},
 {id:7,cat:'Xbox',name:'Xbox Wireless Controller',desc:'Carbon Black',capacities:['Standar'],prices:{'Standar':849000},discount:30,colors:[
-{k:'Black',n:'Hitam',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Xbox_One_controller.png/640px-Xbox_One_controller.png'}]},
+{k:'Black',n:'Hitam',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Xbox_Series_X_and_S_with_controllers_(transparent_background).png'}]},
 
 // ============ NINTENDO ============
 {id:8,cat:'Nintendo',name:'Nintendo Switch OLED',desc:'Layar 7 inci · 64GB',capacities:['Standar'],prices:{'Standar':4899000},discount:30,colors:[
@@ -291,9 +291,9 @@ const products=[
 
 // ============ AKSESORIS ============
 {id:10,cat:'Aksesoris',name:'DualSense Charging Station',desc:'Cas 2 Controller Sekaligus',capacities:['Standar'],prices:{'Standar':449000},discount:30,colors:[
-{k:'White',n:'Putih',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/DualSense_controller.png/640px-DualSense_controller.png'}]},
+{k:'White',n:'Putih',img:'https://commons.wikimedia.org/wiki/Special:FilePath/PlayStation_5_and_DualSense.jpg'}]},
 {id:11,cat:'Aksesoris',name:'PlayStation Portal Remote Player',desc:'Streaming Game PS5',capacities:['Standar'],prices:{'Standar':3499000},discount:30,colors:[
-{k:'White',n:'Putih',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_5_and_PlayStation_5_Digital_Edition.png/640px-PlayStation_5_and_PlayStation_5_Digital_Edition.png'}]}
+{k:'White',n:'Putih',img:'https://commons.wikimedia.org/wiki/Special:FilePath/PlayStation_Portal.jpg'}]}
 ];
 
 const fmt=n=>'Rp'+n.toLocaleString('id-ID');
@@ -329,7 +329,7 @@ function renderProducts(){
     const firstColor=p.colors[0];
     selectedColor[p.id]=firstColor.k; selectedCap[p.id]=defCap;
     return `<div class="product" data-id="${p.id}">
-      <div class="photo"><img src="${firstColor.img}" alt="${p.name}"></div>
+      <div class="photo"><img src="${firstColor.img}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://placehold.co/600x600/160b24/00f0ff?text='+encodeURIComponent('${p.name}')"></div>
       <div class="details">
         <h3>${p.name}</h3>
         <div class="desc">${p.desc}</div>
