@@ -2,33 +2,116 @@
 <html lang="id">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f5f5f7"><title>GAME STORE — PlayStation Collection</title>
+<meta name="theme-color" content="#0a0014"><title>GAME STORE — Next-Gen Gaming</title>
 <style>
-:root{--ink:#171717;--muted:#6e6e73;--line:#e5e5e7;--bg:#f5f5f7;--blue:#1464d2}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.5}
+/* TEMA NEON GTA 6 / VICE CITY */
+:root{
+  --ink:#ffffff;
+  --muted:#a1a1aa;
+  --line:#3b0764; /* Garis ungu gelap */
+  --bg:#0a0014; /* Latar belakang sangat gelap (Midnight Purple) */
+  --neon-pink:#ff00ff; /* Warna khas GTA 6 */
+  --neon-cyan:#00f0ff;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.5;
+  /* BACKGROUND GTA 6 VIBE (Kota malam dengan lampu neon) */
+  background-image: linear-gradient(rgba(10, 0, 20, 0.85), rgba(10, 0, 20, 0.95)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
 a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
-header{background:#ffffffed;backdrop-filter:blur(14px);position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line)}
-.nav{min-height:66px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding: 10px 0;}.brand{font-weight:900;letter-spacing:.12em;font-size:19px}.brand span{color:var(--blue)}.brand{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.brand .brand-mark{font-size:19px;color:#171717;border:1.5px solid #171717;border-radius:50%;width:24px;height:24px;display:inline-grid;place-items:center;font-size:10px}.brand-sub{font-size:8px;letter-spacing:.12em;color:#777;font-weight:700;margin-left:3px}
-.links{display:flex;gap:20px;font-size:14px;color:#424245}.carttop{border:0;border-radius:22px;background:#171717;color:#fff;padding:10px 16px;font-weight:700}
-.hero{padding:68px 0 55px;text-align:center;background:radial-gradient(ellipse at 50% 0,#e6efff 0,transparent 65%)}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.19em;color:var(--blue);font-weight:800}
-.hero h1{font-size:clamp(38px,7vw,64px);line-height:1.04;letter-spacing:-.055em;margin:16px auto;max-width:850px}.hero p{max-width:620px;margin:0 auto 24px;color:var(--muted);font-size:16px}
-.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:24px;background:var(--ink);color:#fff;padding:12px 20px;font-weight:750}.btn.blue{background:var(--blue)}.btn.light{background:#f0f0f2;color:var(--ink)}
-section{padding:34px 0 55px}.head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px}.head h2{margin:0;font-size:29px;letter-spacing:-.04em}.head p{margin:5px 0 0;color:var(--muted);font-size:14px}
-.tabs{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 22px}.tab{border:1px solid #d9d9df;background:#fff;border-radius:22px;padding:10px 17px;font-weight:700;color:#333; font-size: 14px}.tab.active{background:#171717;color:#fff;border-color:#171717}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.product{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 5px 20px #00000006}
-.photo{height:280px;background:#f8f8fa;display:grid;place-items:center;padding:20px}.photo img{width:100%;height:100%;object-fit:contain}.details{padding:20px;display:flex;flex-direction:column;flex:1}.product h3{font-size:20px;margin:10px 0 6px}.desc{font-size:14px;color:var(--muted);margin:0 0 14px}.price{font-size:24px;font-weight:900;letter-spacing:-.03em;color:#16834a}.price-note{font-size:12px;color:var(--muted);margin:6px 0 16px}.variant-label{font-size:13px;font-weight:800;margin:8px 0 4px;display:block}.variant-select{width:100%;border:1px solid #d9d9df;border-radius:12px;padding:12px;background:#fff;font:inherit;font-size:14px}.color-options{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}.color-chip{border:1px solid #d5d5d8;background:#fff;border-radius:20px;padding:8px 12px;font-size:12px;cursor:pointer}.color-chip.active{border:2px solid #171717;padding:7px 11px;font-weight:800}.actions{display:flex;gap:10px;margin-top:auto}.actions button{flex:1;font-size:15px;padding:14px 10px;border-radius:24px}
-.note{font-size:12px;color:var(--muted);margin:18px 0 0;line-height:1.6}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.benefit{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}.benefit b{display:block;margin-bottom:5px}.benefit span{color:var(--muted);font-size:13px}
-.overlay{position:fixed;inset:0;background:#0008;z-index:10;display:none;align-items:center;justify-content:center;padding:14px}.overlay.show{display:flex}.modal{background:#fff;border-radius:22px;width:min(540px,100%);max-height:92vh;overflow-y:auto;overflow-x:hidden;padding:20px;overscroll-behavior:contain;scroll-behavior:smooth; -webkit-overflow-scrolling:touch}.modalhead{display:flex;justify-content:space-between;align-items:center}.modal h2{margin:0 0 10px}.close{border:0;background:#eee;border-radius:50%;width:35px;height:35px;font-size:20px}
-.cartline{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px}.qty{display:flex;align-items:center;gap:8px}.qty button{border:1px solid var(--line);background:#f6f6f7;border-radius:8px;width:27px;height:27px}
-.total{display:flex;justify-content:space-between;font-weight:900;padding:14px 0;font-size:18px}.field{display:block;margin:11px 0;font-size:13px;font-weight:700}.field input{display:block;width:100%;margin-top:5px;padding:12px;border:1px solid #d5d5d8;border-radius:11px;font:inherit;font-weight:400}
-.small{font-size:12px;color:var(--muted);line-height:1.6}.payment{display:none;background:linear-gradient(145deg,#fff,#f2f3f5);border:1px solid #d9d9de;border-radius:17px;padding:17px;margin:15px 0}.payment.show{display:block}.pay-highlight{background:#fff;border:2px solid #171717;border-radius:15px;padding:15px;margin:12px 0 16px}.paybrand{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e4e4e7;padding-bottom:11px;margin-bottom:12px}
-.meta{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#777;font-weight:800;margin-top:11px}.owner{font-size:19px;font-weight:900}.account{font-size:22px;font-weight:900;letter-spacing:.06em;margin:4px 0 10px}.copy{border:0;border-radius:20px;padding:9px 14px;background:#171717;color:#fff;font-weight:700}.payhr{border:0;border-top:1px solid #e4e4e7;margin:13px 0}
-footer{border-top:1px solid var(--line);padding:25px 0 34px;color:var(--muted);font-size:12px}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{background:rgba(10, 0, 20, 0.8);backdrop-filter:blur(14px);position:sticky;top:0;z-index:5;border-bottom:1px solid var(--neon-pink); box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);}
+.nav{min-height:66px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding: 10px 0;}
+.brand{font-weight:900;letter-spacing:.12em;font-size:19px; text-shadow: 0 0 10px var(--neon-cyan);}
+.brand span{color:var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink);}
+.brand{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.brand .brand-mark{font-size:19px;color:#fff;border:1.5px solid var(--neon-cyan);border-radius:50%;width:24px;height:24px;display:inline-grid;place-items:center;font-size:10px; box-shadow: 0 0 8px var(--neon-cyan);}
+.brand-sub{font-size:8px;letter-spacing:.12em;color:var(--neon-cyan);font-weight:700;margin-left:3px}
+.links{display:flex;gap:20px;font-size:14px;color:#e4e4e7}.links a:hover{color:var(--neon-cyan); text-shadow: 0 0 8px var(--neon-cyan);}
+.carttop{border:0;border-radius:22px;background:linear-gradient(45deg, var(--neon-pink), #8a2be2);color:#fff;padding:10px 16px;font-weight:700; box-shadow: 0 0 10px rgba(255,0,255,0.5); transition: 0.3s;}
+.carttop:hover{box-shadow: 0 0 20px rgba(255,0,255,0.8); transform: scale(1.05);}
+
+.hero{padding:80px 0 70px;text-align:center;background:transparent;}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.19em;color:var(--neon-cyan);font-weight:800; text-shadow: 0 0 10px var(--neon-cyan);}
+.hero h1{font-size:clamp(38px,7vw,64px);line-height:1.04;letter-spacing:-.055em;margin:16px auto;max-width:850px; text-shadow: 0 0 20px rgba(255,0,255,0.4);}
+.hero p{max-width:620px;margin:0 auto 24px;color:#d4d4d8;font-size:16px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:24px;background:var(--ink);color:#000;padding:12px 20px;font-weight:750; transition: 0.3s;}
+.btn.blue{background:linear-gradient(45deg, var(--neon-cyan), #0055ff);color:#fff; box-shadow: 0 0 15px rgba(0,240,255,0.4);}
+.btn.blue:hover{box-shadow: 0 0 25px rgba(0,240,255,0.8); transform: scale(1.05);}
+
+section{padding:34px 0 55px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px}
+.head h2{margin:0;font-size:29px;letter-spacing:-.04em; color:#fff; text-shadow: 0 0 10px rgba(255,255,255,0.3);}
+.head p{margin:5px 0 0;color:var(--muted);font-size:14px}
+
+.tabs{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 22px}
+.tab{border:1px solid var(--neon-pink);background:rgba(0,0,0,0.5);border-radius:22px;padding:10px 17px;font-weight:700;color:var(--neon-pink); font-size: 14px; transition: 0.2s;}
+.tab:hover{background:rgba(255,0,255,0.1); box-shadow: 0 0 10px var(--neon-pink);}
+.tab.active{background:var(--neon-pink);color:#fff;border-color:var(--neon-pink); box-shadow: 0 0 15px var(--neon-pink);}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.product{background:rgba(20, 10, 30, 0.85);border:1px solid rgba(255, 0, 255, 0.3);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 5px 20px rgba(0,0,0,0.5); transition: 0.3s;}
+.product:hover{border-color:var(--neon-cyan); box-shadow: 0 0 20px rgba(0,240,255,0.3); transform: translateY(-5px);}
+.photo{height:280px;background:rgba(0,0,0,0.4);display:grid;place-items:center;padding:20px}
+.photo img{width:100%;height:100%;object-fit:contain; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));}
+.details{padding:20px;display:flex;flex-direction:column;flex:1}
+.product h3{font-size:20px;margin:10px 0 6px; color:#fff;}
+.desc{font-size:14px;color:var(--muted);margin:0 0 14px}
+.price{font-size:24px;font-weight:900;letter-spacing:-.03em;color:var(--neon-cyan); text-shadow: 0 0 10px rgba(0,240,255,0.5);}
+.price-note{font-size:12px;color:var(--neon-pink);margin:6px 0 16px}
+.color-options{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.color-chip{border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.6);border-radius:20px;padding:8px 12px;font-size:12px;cursor:pointer;color:#fff;}
+.color-chip.active{border:2px solid var(--neon-cyan);padding:7px 11px;font-weight:800; box-shadow: 0 0 10px var(--neon-cyan);}
+.variant-select{width:100%;border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:12px;background:rgba(0,0,0,0.6);color:#fff;font:inherit;font-size:14px}
+.actions{display:flex;gap:10px;margin-top:auto}
+.actions button{flex:1;font-size:15px;padding:14px 10px;border-radius:24px; background:linear-gradient(45deg, var(--neon-pink), #8a2be2); color:#fff; border:none; font-weight:bold;}
+.actions button:hover{box-shadow: 0 0 15px var(--neon-pink);}
+
+.note{font-size:12px;color:var(--muted);margin:18px 0 0;line-height:1.6}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.benefit{background:rgba(20, 10, 30, 0.8);border:1px solid var(--line);border-radius:18px;padding:18px}
+.benefit b{display:block;margin-bottom:5px; color:var(--neon-cyan);}
+.benefit span{color:var(--muted);font-size:13px}
+
+/* MODAL & OVERLAY */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter: blur(5px);z-index:10;display:none;align-items:center;justify-content:center;padding:14px}
+.overlay.show{display:flex}
+.modal{background:#0f0518;border:1px solid var(--neon-pink);border-radius:22px;width:min(540px,100%);max-height:92vh;overflow-y:auto;overflow-x:hidden;padding:20px;box-shadow: 0 0 30px rgba(255,0,255,0.2);}
+.modalhead{display:flex;justify-content:space-between;align-items:center}
+.modal h2{margin:0 0 10px}
+.close{border:0;background:rgba(255,255,255,0.1);color:#fff;border-radius:50%;width:35px;height:35px;font-size:20px;}
+
+.cartline{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px}
+.qty{display:flex;align-items:center;gap:8px; margin-top:5px;}
+.qty button{border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;border-radius:8px;width:27px;height:27px}
+.total{display:flex;justify-content:space-between;font-weight:900;padding:14px 0;font-size:18px; color:var(--neon-cyan);}
+.field{display:block;margin:11px 0;font-size:13px;font-weight:700}
+.field input, .field textarea{display:block;width:100%;margin-top:5px;padding:12px;border:1px solid rgba(255,255,255,0.2);border-radius:11px;font:inherit;font-weight:400; background:rgba(0,0,0,0.5); color:#fff;}
+.small{font-size:12px;color:var(--muted);line-height:1.6}
+.payment{display:none;background:linear-gradient(145deg,rgba(20,10,30,0.9),rgba(10,0,20,0.9));border:1px solid var(--neon-pink);border-radius:17px;padding:17px;margin:15px 0}
+.payment.show{display:block}
+.pay-highlight{background:rgba(0,0,0,0.6);border:2px solid var(--neon-cyan);border-radius:15px;padding:15px;margin:12px 0 16px}
+.paybrand{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:11px;margin-bottom:12px}
+.meta{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--neon-cyan);font-weight:800;margin-top:11px}
+.owner{font-size:19px;font-weight:900; color:#fff;}
+.account{font-size:22px;font-weight:900;letter-spacing:.06em;margin:4px 0 10px; color:var(--neon-pink);}
+.copy{border:0;border-radius:20px;padding:9px 14px;background:var(--neon-cyan);color:#000;font-weight:700}
+.payhr{border:0;border-top:1px solid rgba(255,255,255,0.1);margin:13px 0}
+footer{border-top:1px solid var(--line);padding:25px 0 34px;color:var(--muted);font-size:12px}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* CSS Login Google */
 .btn-google { background: #fff; color: #171717; border: 1px solid #d5d5d8; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 16px; cursor: pointer; transition: background 0.2s; margin-top: 15px; }
 .btn-google:hover { background: #f8f8f8; }
 .btn-google svg { width: 24px; height: 24px; }
-.login-info{display:flex; justify-content:space-between; align-items:center; background:#f0f0f2; padding:10px 15px; border-radius:10px; margin-bottom:15px; font-size:13px}
+.login-info{display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.5); border:1px solid var(--line); padding:10px 15px; border-radius:10px; margin-bottom:15px; font-size:13px}
 .btn-logout{background:#dc3545; color:#fff; border:none; padding:6px 12px; border-radius:15px; font-size:12px; font-weight:bold; cursor:pointer}
+
 @media(max-width:760px){
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .photo{height:220px}
@@ -55,16 +138,16 @@ footer{border-top:1px solid var(--line);padding:25px 0 34px;color:var(--muted);f
 </style>
 </head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">●</span> GAME<span>STORE</span><small class="brand-sub">PREMIUM GAMING COLLECTION</small></a>
+<header><div class="wrap nav"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">●</span> GAME<span>STORE</span><small class="brand-sub">NEXT-GEN COLLECTION</small></a>
 <nav class="links">
   <a href="#produk">Katalog</a>
   <a href="#tentang">Tentang</a>
   <a href="#kontak">Kontak</a>
-  <a href="#" onclick="openHistory()" style="color:var(--blue); font-weight:bold;">Riwayat Pesanan</a>
+  <a href="#" onclick="openHistory()" style="color:var(--neon-cyan); font-weight:bold; text-shadow: 0 0 5px var(--neon-cyan);">Riwayat Pesanan</a>
 </nav><button class="carttop" onclick="openCart()">Keranjang (<span id="cartCount">0</span>)</button>
 </div>
 <main id="home">
-<div class="hero"><div class="wrap"><div class="eyebrow">GAME STORE · PLAYSTATION COLLECTION</div><h1>Level up your<br>gaming experience.</h1><p>Pilih konsol dan aksesoris favoritmu dari kategori PlayStation, Xbox, dan Nintendo.</p><a class="btn blue" href="#produk">Jelajahi Produk</a></div></div>
+<div class="hero"><div class="wrap"><div class="eyebrow">VICE CITY GAMING</div><h1>Dominate the<br>Game.</h1><p>Temukan koleksi konsol next-gen, game terbaru, dan aksesoris original dengan promo spesial 30%.</p><a class="btn blue" href="#produk">Mulai Belanja</a></div></div>
 <section id="produk"><div class="wrap"><div class="head"><div><h2>Katalog Produk</h2><p>Pilih kategori untuk melihat produk yang tersedia.</p></div></div>
 <div class="tabs"><button class="tab active" data-cat="PlayStation" onclick="setCategory('PlayStation')">PlayStation</button><button class="tab" data-cat="Xbox" onclick="setCategory('Xbox')">Xbox</button><button class="tab" data-cat="Nintendo" onclick="setCategory('Nintendo')">Nintendo</button><button class="tab" data-cat="Aksesoris" onclick="setCategory('Aksesoris')">Aksesoris</button></div>
 <div class="grid" id="productGrid"></div>
@@ -79,7 +162,7 @@ footer{border-top:1px solid var(--line);padding:25px 0 34px;color:var(--muted);f
 <div id="cartItems"></div><div class="total"><span>Total Pesanan</span><span id="cartTotal">Rp0</span></div>
 
 <div id="authArea">
-  <div class="small" style="text-align:center; margin-bottom:10px; font-weight:bold">Silakan login menggunakan akun Gmail Anda untuk melanjutkan checkout.</div>
+  <div class="small" style="text-align:center; margin-bottom:10px; font-weight:bold; color:var(--neon-pink);">Silakan login menggunakan akun Gmail Anda untuk melanjutkan checkout.</div>
   <button class="btn-google" onclick="loginWithGoogle()">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
     Login dengan Google
@@ -87,7 +170,7 @@ footer{border-top:1px solid var(--line);padding:25px 0 34px;color:var(--muted);f
 </div>
 
 <div id="checkoutArea" style="display:none;">
-  <div class="login-info"><span>Login sebagai: <b id="userEmail"></b></span><button class="btn-logout" onclick="logout()">Logout</button></div>
+  <div class="login-info"><span>Login sebagai: <b id="userEmail" style="color:var(--neon-cyan);"></b></span><button class="btn-logout" onclick="logout()">Logout</button></div>
   <form id="checkoutForm">
     <label class="field">Nama pembeli<input id="buyerName" required maxlength="60" placeholder="Nama lengkap"></label>
     <label class="field">Nomor WhatsApp<input id="buyerPhone" required inputmode="tel" maxlength="20" placeholder="08xxxxxxxxxx"></label>
@@ -97,21 +180,21 @@ footer{border-top:1px solid var(--line);padding:25px 0 34px;color:var(--muted);f
     <label class="field">Kelurahan / Desa<input id="buyerVillage" required maxlength="60" placeholder="Kelurahan atau desa"></label>
     <label class="field">Kode Pos<input id="buyerPostal" required inputmode="numeric" maxlength="10" placeholder="Kode pos"></label>
     <label class="field">Nama Jalan / Perumahan<input id="buyerStreet" required maxlength="120" placeholder="Nama jalan atau perumahan"></label>
-    <label class="field">Alamat lengkap<textarea id="buyerAddress" required maxlength="400" rows="3" style="display:block;width:100%;margin-top:5px;padding:12px;border:1px solid #d5d5d8;border-radius:11px;font:inherit;font-weight:400" placeholder="Nomor rumah, blok, RT/RW, patokan"></textarea></label>
+    <label class="field">Alamat lengkap<textarea id="buyerAddress" required maxlength="400" rows="3" placeholder="Nomor rumah, blok, RT/RW, patokan"></textarea></label>
     <button class="btn blue" style="width:100%;margin-top:8px" type="submit">Lanjutkan Pesanan</button>
   </form>
 </div>
 
-<div id="invoiceBox" style="display:none; background:#fff; border:1px solid #e5e5e7; border-radius:15px; padding:20px; margin-bottom:15px; font-family:monospace;">
-  <div style="text-align:center; margin-bottom:15px; border-bottom:2px dashed #ccc; padding-bottom:10px;"><h2 style="margin:0; font-family:sans-serif;">GAME STORE</h2><div style="font-size:12px; color:#666;">INVOICE PESANAN</div></div>
+<div id="invoiceBox" style="display:none; background:rgba(0,0,0,0.7); border:1px solid var(--neon-cyan); border-radius:15px; padding:20px; margin-bottom:15px; font-family:monospace;">
+  <div style="text-align:center; margin-bottom:15px; border-bottom:2px dashed rgba(255,255,255,0.2); padding-bottom:10px;"><h2 style="margin:0; font-family:sans-serif; color:var(--neon-pink);">GAME STORE</h2><div style="font-size:12px; color:var(--muted);">INVOICE PESANAN</div></div>
   <div style="font-size:12px; margin-bottom:10px;"><div><b>No. Invoice:</b> <span id="invNumber"></span></div><div><b>Tanggal:</b> <span id="invDate"></span></div><div><b>Nama:</b> <span id="invName"></span></div><div><b>WhatsApp:</b> <span id="invPhone"></span></div><div><b>Alamat:</b> <span id="invAddress"></span></div></div>
-  <table style="width:100%; font-size:12px; border-collapse:collapse; margin-bottom:10px;"><thead><tr style="border-bottom:1px solid #000; text-align:left;"><th style="padding:5px 0;">Barang</th><th style="padding:5px 0; text-align:right;">Total</th></tr></thead><tbody id="invItems"></tbody></table>
-  <div style="border-top:2px dashed #ccc; padding-top:10px; font-size:14px; font-weight:bold; display:flex; justify-content:space-between;"><span>TOTAL:</span><span id="invTotal"></span></div>
+  <table style="width:100%; font-size:12px; border-collapse:collapse; margin-bottom:10px;"><thead><tr style="border-bottom:1px solid #fff; text-align:left;"><th style="padding:5px 0;">Barang</th><th style="padding:5px 0; text-align:right;">Total</th></tr></thead><tbody id="invItems"></tbody></table>
+  <div style="border-top:2px dashed rgba(255,255,255,0.2); padding-top:10px; font-size:14px; font-weight:bold; display:flex; justify-content:space-between; color:var(--neon-cyan);"><span>TOTAL:</span><span id="invTotal"></span></div>
 </div>
 
 <div class="payment" id="paymentBox">
-<div class="paybrand"><strong>GAME STORE</strong><span class="paybadge">OFFICIAL PAYMENT</span></div>
-<div class="small" id="buyerSummary" style="background:#f7f7f9;border-radius:12px;padding:12px;margin:10px 0"><b>Ringkasan penerima</b><br>Alamat pembeli akan ditampilkan di sini setelah formulir diisi.</div>
+<div class="paybrand"><strong style="color:var(--neon-pink);">GAME STORE</strong><span class="paybadge" style="color:var(--neon-cyan); border:1px solid var(--neon-cyan); padding:2px 6px; border-radius:5px;">OFFICIAL PAYMENT</span></div>
+<div class="small" id="buyerSummary" style="background:rgba(0,0,0,0.4);border-radius:12px;padding:12px;margin:10px 0"><b>Ringkasan penerima</b><br>Alamat pembeli akan ditampilkan di sini setelah formulir diisi.</div>
 <div class="pay-highlight"><div class="meta">Nama pemilik rekening</div><div class="owner">M YUDA</div><div class="small">OWNER · GAME STORE</div><hr class="payhr"><div class="meta">Bank</div><div style="font-size:18px;font-weight:800;margin:3px 0 10px">SeaBank</div><div class="meta">Nomor rekening</div><div class="account" id="accountNumber">901633615122</div><button class="copy" type="button" onclick="copyAccount()">Salin nomor rekening</button></div>
 <p class="small"><b>Petunjuk pembayaran</b><br>Periksa nama penerima dan jumlah pesanan sebelum transfer. Setelah transfer, tekan tombol di bawah untuk mengirim konfirmasi pesanan dan bukti pembayaran melalui WhatsApp.</p>
 <div class="total"><span>Total yang harus dibayar</span><span id="paymentTotal">Rp0</span></div>
@@ -290,7 +373,20 @@ function scrollToCheckout(){
 
 function updateCart(){
   const el=document.getElementById('cartItems'); const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  el.innerHTML=cart.length?cart.map(i=>`<div class="cartline"><div><b>${i.name}</b><br><span class="small">${i.color} · ${i.cap}</span></div><div style="text-align:right"><div>${fmt(i.price*i.qty)}</div><div class="qty"><button onclick="changeQty('${i.key}',-1)">−</button><span>${i.qty}</span><button onclick="changeQty('${i.key}',1)">+</button></div></div></div>`).join(''):'<p class="small">Keranjang masih kosong.</p>';
+  el.innerHTML=cart.length?cart.map(i=>{
+    const p=products.find(x=>x.id===i.id);
+    const imgUrl=p.colors.find(c=>c.k===i.color).img;
+    return `<div class="cartline" style="align-items:center;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="${imgUrl}" style="width:40px; height:40px; object-fit:contain; background:rgba(255,255,255,0.1); border-radius:8px; padding:2px;">
+        <div><b>${i.name}</b><br><span class="small">${i.color} · ${i.cap}</span></div>
+      </div>
+      <div style="text-align:right">
+        <div style="color:var(--neon-cyan); font-weight:bold;">${fmt(i.price*i.qty)}</div>
+        <div class="qty"><button onclick="changeQty('${i.key}',-1)">−</button><span>${i.qty}</span><button onclick="changeQty('${i.key}',1)">+</button></div>
+      </div>
+    </div>`;
+  }).join(''):'<p class="small">Keranjang masih kosong.</p>';
   document.getElementById('cartTotal').innerText=fmt(total);
   document.getElementById('cartCount').innerText=cart.reduce((s,i)=>s+i.qty,0);
 }
