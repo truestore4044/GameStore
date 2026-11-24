@@ -251,6 +251,22 @@ header{background:rgba(255,255,255,.97)!important;border-bottom:1px solid #e6e9e
 @media(max-width:650px){.detail-layout{grid-template-columns:1fr}.detail-photo{min-height:220px}.detail-photo img{max-height:260px}.photo{height:220px!important}.hero{padding:38px 0 26px!important}}
 </style>
 
+
+<style id="address-shipping-enhancements">
+.checkout-order-summary{background:#f6f8fb;border:1px solid #e2e8f1;border-radius:13px;padding:14px;margin:16px 0}
+.checkout-order-summary h3{margin:0 0 10px}
+.checkout-summary-line{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #e5eaf1;font-size:12px}
+.checkout-summary-line:last-child{border-bottom:0}
+.checkout-summary-line b{white-space:nowrap;color:#0756c8}
+.checkout-order-total{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #dce3ed;padding-top:11px;margin-top:8px;font-size:14px}
+.checkout-order-total b{color:#0756c8}
+.map-share{border:1px solid #dce4ef;background:#f8faff;border-radius:13px;padding:14px;margin:14px 0}
+.map-share p{margin:6px 0 12px}
+.map-share button{width:100%}
+#mapLocationLink{display:inline-block;color:#0756c8;font-weight:700;margin-top:9px}
+.field select:disabled{background:#f0f2f5!important;color:#8a93a1!important;cursor:not-allowed}
+</style>
+
 </head>
 <body>
 <header><div class="wrap nav"><a class="brand" href="#home"><svg class="brand-controller" viewBox="0 0 64 42" role="img" aria-label="Ikon stik PlayStation"><path d="M15 7c-5 0-8 4-10 10L1 29c-2 7 4 11 10 8l12-8h18l12 8c6 3 12-1 10-8l-4-12c-2-6-5-10-10-10H15Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M16 15v12M10 21h12M45 17h.2M52 24h.2M34 16h.2M39 25h.2" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M27 12c2-3 8-3 10 0" stroke="currentColor" stroke-width="2" fill="none"/></svg><span class="brand-name">PLAY<span>GAME</span></span><small class="brand-sub">NEXT-GEN COLLECTION</small></a>
@@ -295,17 +311,41 @@ header{background:rgba(255,255,255,.97)!important;border-bottom:1px solid #e6e9e
     <h3>Informasi penerima</h3>
     <label class="field">Nama lengkap<input id="buyerName" required maxlength="60" placeholder="Nama lengkap"></label>
     <label class="field">Nomor WhatsApp<input id="buyerPhone" required inputmode="tel" maxlength="20" placeholder="08xxxxxxxxxx"></label>
-    <label class="field">Provinsi<input id="buyerProvince" required maxlength="60" placeholder="Provinsi"></label>
-    <label class="field">Kota / Kabupaten<input id="buyerCity" required maxlength="60" placeholder="Kota atau kabupaten"></label>
-    <label class="field">Kecamatan<input id="buyerDistrict" required maxlength="60" placeholder="Kecamatan"></label>
-    <label class="field">Kelurahan / Desa<input id="buyerVillage" required maxlength="60" placeholder="Kelurahan atau desa"></label>
+
+    <div class="checkout-order-summary">
+      <h3>Rincian pesanan</h3>
+      <div id="checkoutOrderItems" class="small">Produk yang dipilih akan tampil di sini.</div>
+      <div class="checkout-order-total"><span>Total pesanan</span><b id="checkoutOrderTotal">Rp0</b></div>
+    </div>
+
+    <h3>Jasa pengiriman</h3>
+    <label class="shipping-option"><input type="radio" name="shipping" value="Express — estimasi 1 hari sampai" required> <span><b>Express</b><small>Estimasi 1 hari sampai</small></span></label>
+    <label class="shipping-option"><input type="radio" name="shipping" value="Reguler — estimasi 3–5 hari sampai" checked> <span><b>Reguler</b><small>Estimasi 3–5 hari sampai</small></span></label>
+
+    <h3>Alamat pengiriman</h3>
+    <label class="field">Provinsi
+      <select id="buyerProvince" class="variant-select" required><option value="">Memuat daftar provinsi...</option></select>
+    </label>
+    <label class="field">Kota / Kabupaten
+      <select id="buyerCity" class="variant-select" required disabled><option value="">Pilih provinsi terlebih dahulu</option></select>
+    </label>
+    <label class="field">Kecamatan
+      <select id="buyerDistrict" class="variant-select" required disabled><option value="">Pilih kota/kabupaten terlebih dahulu</option></select>
+    </label>
+    <label class="field">Kelurahan / Desa
+      <select id="buyerVillage" class="variant-select" required disabled><option value="">Pilih kecamatan terlebih dahulu</option></select>
+    </label>
     <label class="field">Kode Pos<input id="buyerPostal" required inputmode="numeric" maxlength="10" placeholder="Kode pos"></label>
     <label class="field">Nama Jalan / Perumahan<input id="buyerStreet" required maxlength="120" placeholder="Nama jalan atau perumahan"></label>
-    <label class="field">Alamat lengkap<textarea id="buyerAddress" required maxlength="400" rows="3" placeholder="Nama jalan, nomor rumah, blok, RT/RW, kelurahan, kecamatan, kota, provinsi, kode pos"></textarea></label>
-    <h3>Jasa pengiriman</h3>
-    <label class="shipping-option"><input type="radio" name="shipping" value="1 Hari Sampai" required> <span><b>1 hari sampai</b><small>Estimasi pengiriman ekspres</small></span></label>
-    <label class="shipping-option"><input type="radio" name="shipping" value="3–5 Hari Sampai" required checked> <span><b>3–5 hari sampai</b><small>Estimasi pengiriman reguler</small></span></label>
-    <button class="btn blue" style="width:100%;margin-top:12px" type="submit">Lanjutkan ke rincian pesanan</button>
+    <label class="field">Detail alamat<textarea id="buyerAddress" required maxlength="400" rows="3" placeholder="Nomor rumah, gedung, blok, RT/RW, patokan, dan detail lainnya"></textarea></label>
+    <div class="map-share">
+      <b>Lokasi alamat di peta</b>
+      <p class="small">Bagikan lokasi perangkat agar alamat pengiriman lebih mudah ditemukan. Izinkan akses lokasi saat diminta.</p>
+      <button class="btn blue" type="button" onclick="shareDeliveryLocation()">Gunakan lokasi saya</button>
+      <div id="mapLocationStatus" class="small" aria-live="polite">Lokasi belum dibagikan.</div>
+      <a id="mapLocationLink" href="#" target="_blank" rel="noopener" style="display:none">Lihat lokasi di Google Maps</a>
+    </div>
+    <button class="btn blue" style="width:100%;margin-top:14px" type="submit">Lanjutkan ke pembayaran</button>
   </form>
 </div>
 
@@ -390,6 +430,9 @@ let paymentTimer=null;
 let paymentExpiresAt=null;
 window.showCheckoutDetails=function(){
   if(!cart.length){alert('Keranjang masih kosong.');return;}
+  const summary=document.getElementById('checkoutOrderItems');
+  summary.innerHTML=cart.map(i=>`<div class="checkout-summary-line"><span>${i.name} · ${i.color} · ${i.cap} × ${i.qty}</span><b>${fmt(i.price*i.qty)}</b></div>`).join('');
+  document.getElementById('checkoutOrderTotal').innerText=fmt(cart.reduce((s,i)=>s+i.price*i.qty,0));
   document.getElementById('checkoutArea').style.display='block';
   document.getElementById('checkoutArea').scrollIntoView({behavior:'smooth',block:'start'});
 };
@@ -567,6 +610,80 @@ function changeQty(key,d){
 window.openCart=function(){document.getElementById('cartOverlay').classList.add('show');updateCart();};
 window.closeCart=function(){document.getElementById('cartOverlay').classList.remove('show');};
 
+
+// Dropdown wilayah Indonesia bertingkat: pilihan berikutnya mengikuti wilayah sebelumnya.
+const REGION_API='https://www.emsifa.com/api-wilayah-indonesia/api';
+async function loadRegionOptions(url, select, placeholder){
+  select.innerHTML=`<option value="">Memuat...</option>`;
+  select.disabled=true;
+  try{
+    const response=await fetch(url);
+    if(!response.ok) throw new Error('Gagal memuat wilayah');
+    const items=await response.json();
+    select.innerHTML=`<option value="">${placeholder}</option>`+
+      items.map(item=>`<option value="${item.id}" data-name="${item.name.replace(/"/g,'&quot;')}">${item.name}</option>`).join('');
+    select.disabled=false;
+  }catch(error){
+    select.innerHTML=`<option value="">Daftar tidak tersedia — muat ulang halaman</option>`;
+    select.disabled=true;
+    console.error(error);
+  }
+}
+function selectedRegionName(id){
+  const el=document.getElementById(id);
+  return el?.selectedOptions?.[0]?.textContent || '';
+}
+function resetRegionSelect(id, placeholder){
+  const el=document.getElementById(id);
+  el.innerHTML=`<option value="">${placeholder}</option>`;
+  el.disabled=true;
+}
+async function initRegionDropdowns(){
+  const province=document.getElementById('buyerProvince');
+  const city=document.getElementById('buyerCity');
+  const district=document.getElementById('buyerDistrict');
+  const village=document.getElementById('buyerVillage');
+  await loadRegionOptions(`${REGION_API}/provinces.json`,province,'Pilih provinsi');
+  province.addEventListener('change',async()=>{
+    resetRegionSelect('buyerCity','Pilih kota/kabupaten');
+    resetRegionSelect('buyerDistrict','Pilih kecamatan');
+    resetRegionSelect('buyerVillage','Pilih kelurahan/desa');
+    if(province.value) await loadRegionOptions(`${REGION_API}/regencies/${province.value}.json`,city,'Pilih kota/kabupaten');
+  });
+  city.addEventListener('change',async()=>{
+    resetRegionSelect('buyerDistrict','Pilih kecamatan');
+    resetRegionSelect('buyerVillage','Pilih kelurahan/desa');
+    if(city.value) await loadRegionOptions(`${REGION_API}/districts/${city.value}.json`,district,'Pilih kecamatan');
+  });
+  district.addEventListener('change',async()=>{
+    resetRegionSelect('buyerVillage','Pilih kelurahan/desa');
+    if(district.value) await loadRegionOptions(`${REGION_API}/villages/${district.value}.json`,village,'Pilih kelurahan/desa');
+  });
+}
+initRegionDropdowns();
+
+let deliveryCoordinates=null;
+window.shareDeliveryLocation=function(){
+  const status=document.getElementById('mapLocationStatus');
+  const link=document.getElementById('mapLocationLink');
+  if(!navigator.geolocation){
+    status.textContent='Perangkat atau browser tidak mendukung pembagian lokasi.';
+    return;
+  }
+  status.textContent='Meminta izin lokasi perangkat...';
+  navigator.geolocation.getCurrentPosition(position=>{
+    const lat=position.coords.latitude, lon=position.coords.longitude;
+    deliveryCoordinates={lat,lon};
+    const mapsUrl=`https://www.google.com/maps?q=${lat},${lon}`;
+    link.href=mapsUrl;
+    link.style.display='inline-block';
+    link.textContent='Lihat lokasi di Google Maps';
+    status.textContent='Lokasi berhasil ditambahkan. Periksa pin peta sebelum melanjutkan.';
+  },()=>{
+    status.textContent='Lokasi tidak berhasil diambil. Izinkan akses lokasi atau isi alamat secara manual.';
+  },{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
+};
+
 document.getElementById('checkoutForm').addEventListener('submit',function(e){
   e.preventDefault();
   if(!cart.length){alert('Keranjang masih kosong.');return;}
@@ -574,7 +691,7 @@ document.getElementById('checkoutForm').addEventListener('submit',function(e){
   const now=new Date();
   const inv='INV-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(Math.floor(Math.random()*9000)+1000);
   const shipping=document.querySelector('input[name="shipping"]:checked')?.value || '3–5 Hari Sampai';
-  const fullAddress=[document.getElementById('buyerAddress').value,document.getElementById('buyerStreet').value,document.getElementById('buyerVillage').value,document.getElementById('buyerDistrict').value,document.getElementById('buyerCity').value,document.getElementById('buyerProvince').value,document.getElementById('buyerPostal').value].filter(Boolean).join(', ');
+  const fullAddress=[document.getElementById('buyerAddress').value,document.getElementById('buyerStreet').value,selectedRegionName('buyerVillage'),selectedRegionName('buyerDistrict'),selectedRegionName('buyerCity'),selectedRegionName('buyerProvince'),document.getElementById('buyerPostal').value,deliveryCoordinates?`Lokasi Maps: https://www.google.com/maps?q=${deliveryCoordinates.lat},${deliveryCoordinates.lon}`:''].filter(Boolean).join(', ');
   document.getElementById('invNumber').innerText=inv;
   document.getElementById('invDate').innerText=now.toLocaleString('id-ID');
   document.getElementById('invName').innerText=document.getElementById('buyerName').value;
