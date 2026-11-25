@@ -249,6 +249,47 @@ header{background:rgba(255,255,255,.97)!important;border-bottom:1px solid #e6e9e
 .checkout-next{margin-top:14px}
 #invoiceBox{font-family:inherit!important}
 @media(max-width:650px){.detail-layout{grid-template-columns:1fr}.detail-photo{min-height:220px}.detail-photo img{max-height:260px}.photo{height:220px!important}.hero{padding:38px 0 26px!important}}
+  /* ===== FIX: Nama produk di bawah gambar, tidak menimpa ===== */
+.product{
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+  position:relative !important;
+}
+.photo{
+  position:relative !important;
+  height:230px !important;
+  width:100% !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  flex:none !important;
+}
+.photo img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+.details{
+  position:relative !important;
+  z-index:1 !important;
+  padding:16px 18px 18px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  flex:1 !important;
+  background:#fff !important;
+}
+.product h3{
+  position:static !important;
+  margin:4px 0 6px !important;
+  font-size:17px !important;
+  line-height:1.35 !important;
+  color:#17191f !important;
+  word-break:break-word !important;
+  overflow-wrap:anywhere !important;
+}
 </style>
 
 
@@ -761,47 +802,6 @@ window.openHistory = function() {
 window.closeHistory = function() { document.getElementById('historyOverlay').classList.remove('show'); };
 
 renderProducts();
-  /* ===== FIX: Nama produk di bawah gambar, tidak menimpa ===== */
-.product{
-  display:flex !important;
-  flex-direction:column !important;
-  overflow:hidden !important;
-  position:relative !important;
-}
-.photo{
-  position:relative !important;
-  height:230px !important;
-  width:100% !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:hidden !important;
-  flex:none !important;
-}
-.photo img{
-  width:100% !important;
-  height:100% !important;
-  object-fit:contain !important;
-  display:block !important;
-}
-.details{
-  position:relative !important;
-  z-index:1 !important;
-  padding:16px 18px 18px !important;
-  display:flex !important;
-  flex-direction:column !important;
-  flex:1 !important;
-  background:#fff !important;
-}
-.product h3{
-  position:static !important;
-  margin:4px 0 6px !important;
-  font-size:17px !important;
-  line-height:1.35 !important;
-  color:#17191f !important;
-  word-break:break-word !important;
-  overflow-wrap:anywhere !important;
-}
 </script>
 </body>
 </html>
